@@ -9,14 +9,14 @@
     <string name="correct_toast_message">Great!</string>
     <string name="incorrect_toast_message">Not good!</string>
 
-    <string name="q1">A honey bee can fly at 15mph.</string>
-    <string name="q2">A jellyfish is approximately 95% water.!</string>
-    <string name="q3">Elephants are the only mammals that can\'t jump</string>
-    <string name="q4">Cats can hear ultrasound.</string>
-    <string name="q5">A human brain weighs about three pounds.</string>
-    <string name="q6">The tongue is the fastest healing part of the body.</string>
-    <string name="q7">Americans, on average, eat 18 acres of \"pizza\" a day.</string>
-    <string name="q8">A kangaroo can jump 30 feet.</string>
-    <string name="q9">A pigeon\'s feathers are heavier than its bones.</string>
-    <string name="q10">The tallest man was 8 ft. 11 in.</string>
+    <string name = "q1">ミツバチは15mphで飛行できます。</string>
+    <string name = "q2">クラゲは約95％が水です。！</string>
+    <string name = "q3">象はジャンプできない唯一の哺乳類</string>
+    <string name = "q4">猫は超音波を聞くことができます。</string>
+    <string name = "q5">人間の脳の重量は約3ポンドです。</string>
+    <string name = "q6">舌は体の中で最も早く治癒する部分です。</string>
+    <string name = "q7">アメリカ人は、平均して1日に18エーカーの「ピザ」を食べます。</string>
+    <string name = "q8">カンガルーは30フィートジャンプできます。</string>
+    <string name = "q9">鳩の羽は骨よりも重いです。</string>
+    <string name = "q10">最も背の高い人は8フィート11インチでした。</string>
 </resources>

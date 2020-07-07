@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="#FFFCFC"
         android:fontFamily="monospace"
         android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
@@ -23,7 +24,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="#FFFFFF" />
 
     <TextView
         android:id="@+id/txtQuizStats"
