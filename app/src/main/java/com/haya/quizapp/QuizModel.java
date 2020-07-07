@@ -5,7 +5,7 @@ public class QuizModel {
     private int mQuestion;
     private boolean mAnswer;
 
-    public QuizModel(int mQuestion, boolean Answer) {
+    public QuizModel(int mQuestion, boolean mAnswer) {
         this.mQuestion = mQuestion;
         this.mAnswer = mAnswer;
     }

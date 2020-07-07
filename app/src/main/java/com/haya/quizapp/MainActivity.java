@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    final int USER_PROGRSS = 10;
 
     private TextView mTxtQuestion;
 
@@ -17,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
     private int mQuestionIndex;
     private int mQuizQuestion;
+
+    private ProgressBar mProgressBar;
+    private TextView mQuizStatsTextView;
+
+    private int mUserScore;
 
     private QuizModel[] questionCollection = new QuizModel[] {
             new QuizModel(R.string.q1, true),
@@ -31,19 +39,21 @@ public class MainActivity extends AppCompatActivity {
             new QuizModel(R.string.q10, false),
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mTxtQuestion = findViewById(R.id.txtQuestion);
-
         QuizModel q1 =  questionCollection[mQuestionIndex];
-
         mQuizQuestion = q1.getQuestion();
 
-        mTxtQuestion.setText(questionCollection[mQuestionIndex].getQuestion());
+        mTxtQuestion.setText(mQuizQuestion);
+
+        mProgressBar = findViewById(R.id.quizPB);
+        mQuizStatsTextView = findViewById(R.id.txtQuizStats);
+
+        mQuizStatsTextView.setText(mUserScore + "");
 
         btnTrue = findViewById(R.id.btnTrue);
 
@@ -78,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         mQuestionIndex = (mQuestionIndex + 1) % 10;
         mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
         mTxtQuestion.setText(mQuizQuestion);
+        mProgressBar.incrementProgressBy(USER_PROGRSS);
+
     }
 
     private void evaluateUsersAnswer(boolean userGuess) {
@@ -88,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), R.string.correct_toast_message, Toast.LENGTH_LONG).show();
 
-//            mUserScore = mUserScore + 1;
+            mUserScore = mUserScore + 1;
 
         } else {
 
