@@ -19,6 +19,7 @@
         android:textColor="#000000"
         android:textSize="25sp" />
 
+
     <ProgressBar
         android:id="@+id/quizPB"
         style="?android:attr/progressBarStyleHorizontal"
@@ -34,7 +35,7 @@
         android:layout_weight="1"
         android:background="#FFFFFF"
         android:gravity="center_horizontal|center_vertical"
-        android:text="※点数表示欄(後日追加)"
+        android:text="textView"
         android:textSize="40sp" />
 
     <Button

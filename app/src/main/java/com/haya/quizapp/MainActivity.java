@@ -2,7 +2,6 @@ package com.haya.quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
-    final int USER_PROGRSS = 10;
 
     private TextView mTxtQuestion;
 
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private TextView mQuizStatsTextView;
 
-    private int mUserScore;
+    private int mUserScore = 0;
 
     private QuizModel[] questionCollection = new QuizModel[] {
             new QuizModel(R.string.q1, true),
@@ -39,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
             new QuizModel(R.string.q10, false),
     };
 
+    final int USER_PROGRESS = (int) Math.ceil(100.0 / 9);
+//    final int USER_PROGRESS = (int) Math.ceil(100.0 / questionCollection.length);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
         mTxtQuestion = findViewById(R.id.txtQuestion);
         QuizModel q1 =  questionCollection[mQuestionIndex];
         mQuizQuestion = q1.getQuestion();
-
         mTxtQuestion.setText(mQuizQuestion);
 
         mProgressBar = findViewById(R.id.quizPB);
+
         mQuizStatsTextView = findViewById(R.id.txtQuizStats);
 
         mQuizStatsTextView.setText(mUserScore + "");
@@ -69,8 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnWrong = findViewById(R.id.btnWrong);
 
-        //  btnWrong.setOnClickListener(myClickListener);
-
         btnWrong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
         mQuestionIndex = (mQuestionIndex + 1) % 10;
         mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
         mTxtQuestion.setText(mQuizQuestion);
-        mProgressBar.incrementProgressBy(USER_PROGRSS);
-
+        mProgressBar.incrementProgressBy(USER_PROGRESS);
+        mQuizStatsTextView.setText(mUserScore + "");
     }
 
     private void evaluateUsersAnswer(boolean userGuess) {

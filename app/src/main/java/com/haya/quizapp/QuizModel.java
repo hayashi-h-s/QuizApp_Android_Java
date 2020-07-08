@@ -10,6 +10,7 @@ public class QuizModel {
         this.mAnswer = mAnswer;
     }
 
+
     public int getQuestion() {
         return mQuestion;
     }
