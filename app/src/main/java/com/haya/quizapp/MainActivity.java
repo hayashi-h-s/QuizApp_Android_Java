@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             quizAlert.setCancelable(true);
             quizAlert.setTitle("クイズは終了です。");
             quizAlert.setMessage("あなたの点数は" + mUserScore + "点でした。");
-            quizAlert.setNeutralButton("アプリを終了する。", new DialogInterface.OnClickListener() {
+            quizAlert.setNeutralButton("アプリを終了", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     finish();

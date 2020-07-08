@@ -6,12 +6,12 @@
     <string name="correct_text">Correct!</string>
     <string name="incorrect_text">Incorrect!</string>
     <string name="first_score_text">0/10</string>
-    <string name="correct_toast_message">Great!</string>
-    <string name="incorrect_toast_message">Not good!</string>
+    <string name="correct_toast_message">正解！</string>
+    <string name="incorrect_toast_message">不正解！</string>
 
-    <string name = "q1">ミツバチは15mphで飛行できます。</string>
-    <string name = "q2">クラゲは約95％が水です。！</string>
-    <string name = "q3">象はジャンプできない唯一の哺乳類</string>
+    <string name = "q1">ミツバチは15mphで飛行で切るか？</string>
+    <string name = "q2">クラゲは約95％が水か？</string>
+    <string name = "q3">象はジャンプできない唯一の哺乳類ですか？</string>
     <string name = "q4">猫は超音波を聞くことができます。</string>
     <string name = "q5">人間の脳の重量は約3ポンドです。</string>
     <string name = "q6">舌は体の中で最も早く治癒する部分です。</string>
