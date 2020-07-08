@@ -1,6 +1,9 @@
 package com.haya.quizapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             new QuizModel(R.string.q10, false),
     };
 
-    final int USER_PROGRESS = (int) Math.ceil(100.0 / 9);
+    final int USER_PROGRESS = (int) Math.ceil(100.0 / questionCollection.length);
 //    final int USER_PROGRESS = (int) Math.ceil(100.0 / questionCollection.length);
 
     @Override
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         mQuizStatsTextView = findViewById(R.id.txtQuizStats);
 
-        mQuizStatsTextView.setText(mUserScore + "");
+        mQuizStatsTextView.setText("現在" + mUserScore + "点");
 
         btnTrue = findViewById(R.id.btnTrue);
 
@@ -84,10 +87,26 @@ public class MainActivity extends AppCompatActivity {
     private void changeQuestionOnButtonClick() {
 
         mQuestionIndex = (mQuestionIndex + 1) % 10;
+
+        if (mQuestionIndex == 0) {
+//            Toast.makeText(getApplicationContext(), "クイズは終了です。。", Toast.LENGTH_LONG).show();
+            AlertDialog.Builder quizAlert = new AlertDialog.Builder(this);
+            quizAlert.setCancelable(true);
+            quizAlert.setTitle("クイズは終了です。");
+            quizAlert.setMessage("あなたの点数は" + mUserScore + "点でした。");
+            quizAlert.setNeutralButton("アプリを終了する。", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+            quizAlert.show();
+        }
+
         mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
         mTxtQuestion.setText(mQuizQuestion);
         mProgressBar.incrementProgressBy(USER_PROGRESS);
-        mQuizStatsTextView.setText(mUserScore + "");
+        mQuizStatsTextView.setText("現在" + mUserScore + "点");
     }
 
     private void evaluateUsersAnswer(boolean userGuess) {
@@ -96,13 +115,13 @@ public class MainActivity extends AppCompatActivity {
 
         if (currentQuestionAnswer == userGuess) {
 
-            Toast.makeText(getApplicationContext(), R.string.correct_toast_message, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.correct_toast_message, Toast.LENGTH_SHORT).show();
 
             mUserScore = mUserScore + 1;
 
         } else {
 
-            Toast.makeText(getApplicationContext(), R.string.incorrect_toast_message, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.incorrect_toast_message, Toast.LENGTH_SHORT).show();
 
         }
 
